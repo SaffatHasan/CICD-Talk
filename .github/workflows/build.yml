@@ -1,0 +1,73 @@
+name: Build and Deploy
+
+on: [push]
+
+jobs:
+  gen-latex-files:
+    runs-on: ubuntu-latest
+    container: python:3.8
+    steps:
+        # Checkout current branch 
+      - uses: actions/checkout@v2
+        
+        # Install python depedencies
+      - run: pip install jinja2 pyyaml
+
+        # Generate our rendered latex templates!
+      - run: python src/render_resume_template.py
+
+        # Upload and save it for the next job
+      - name: upload generated latex
+        uses: actions/upload-artifact@v2
+        with:
+          name: gen-latex-files-artifacts
+          path: dist/resume.tex
+
+  generate-pdf-files:
+    runs-on: ubuntu-latest
+    container: blang/latex:ubuntu
+    needs: gen-latex-files
+    steps:
+        # Checkout current branch 
+      - uses: actions/checkout@v2
+
+        # Download generated latex template
+      - name: copy artifact from gen-latex-files-artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: gen-latex-files-artifacts
+          path: dist/
+
+        # Generate our resume as a PDF!
+      - run: lualatex resume.tex
+        working-directory: dist/
+
+        # Upload and save PDF for the next job.
+      - name: upload generated pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: generate-pdf-artifacts
+          path: dist/resume.pdf
+
+  deploy-to-github-pages:
+    runs-on: ubuntu-latest
+    needs: generate-pdf-files
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+        # Checkout current branch 
+      - uses: actions/checkout@v2
+
+        # Download generated PDF
+      - name: copy artifact from generate-pdf-artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: generate-pdf-artifacts
+          path: publish/
+
+        # Deploy 🚀
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: publish/ # The folder the action should deploy.
