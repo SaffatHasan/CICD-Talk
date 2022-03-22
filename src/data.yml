@@ -1,0 +1,96 @@
+contact:
+  name: Your Name
+  address:
+    line1: Home Address
+    city: Home City
+    state: Home State
+    zip: Home Zip
+  phone: "Phone Number"
+  email: "Your Email"
+  github: "Your Github"
+  linkedin: Your Linkedin
+
+education:
+  - name: Harvard University
+    location: Cambridge, MA
+    graduation: June 2198
+    description: "B.S. in Computer Science | GPA: 4.00"
+
+experience:
+  - employer: Facebook
+    location: New York, NY
+    title: Software Engineer
+    duration: January 2199 - Present
+    summary_items:
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+    skills:
+      - Python
+      - Go
+      - Java
+
+  - employer: Amazon
+    location: New York, NY
+    title: Software Engineer
+    duration: January 2199 - Present
+    summary_items:
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+    skills:
+      - Python
+      - Go
+      - Java
+
+  - employer: Apple
+    location: New York, NY
+    title: Software Engineer
+    duration: January 2199 - Present
+    summary_items:
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+    skills:
+      - Python
+      - Go
+      - Java
+
+projects:
+  - name: Your Project
+    url: https://github.com/YourName/YourProject
+    duration: January 2199 - Present
+    summary_items:
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+    skills:
+      - Python
+      - Go
+      - Java
+
+  - name: Your Project
+    url: https://github.com/YourName/YourProject
+    duration: Sept 2020 - Present
+    summary_items:
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
+    skills:
+      - Python
+      - Go
+      - Java
+
+skills:
+  proficient:
+    - Java
+    - Python
+    - Go
+    - HTML/CSS
+  familiar:
+    - C++
+    - C\#
+    - C

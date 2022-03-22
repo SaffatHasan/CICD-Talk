@@ -1,0 +1,178 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+%-----------UNDERLINE-----------
+\usepackage{soul}
+\setuldepth{a}
+
+
+%----------FONT OPTIONS----------
+\usepackage{mathptmx}
+
+%-------------LINKS---------------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+\urlstyle{same}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape \VAR{contact.name}} \\ \vspace{1pt}
+    \small \VAR{contact.phone} $|$ \href{mailto:\VAR{contact.email}}{\ul{\VAR{contact.email}}} $|$
+    \href{https://\VAR{contact.linkedin}}{\VAR{contact.linkedin}} $|$
+    \href{https://\VAR{contact.github}}{\VAR{contact.github}} $|$
+    \href{https://\VAR{contact.gitlab}}{\VAR{contact.gitlab}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    %% for school in education
+    \resumeSubheading
+      {\VAR{school.name}}{\VAR{school.location}}
+      {\VAR{school.description}}{Graduation: \VAR{school.graduation}}
+    %% endfor
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    %% for job in experience
+    \resumeSubheading
+      {\VAR{job.employer} - \VAR{job.title}}{\VAR{job.duration}}
+      {\VAR{job.location}}{}
+      \resumeItemListStart
+        %% for item in job.summary_items
+        \resumeItem{\VAR{item}}
+        %% endfor
+        \resumeItem{\ul{Leveraged} \VAR{job.skills|join(', ')}}
+      \resumeItemListEnd
+    %% endfor
+      
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      %% for project in projects
+      \resumeProjectHeading
+          {\href{\VAR{project.url}}{\textbf{\VAR{project.name}}}}
+          {\VAR{project.duration}}
+          \resumeItemListStart
+            %% for item in project.summary_items
+            \resumeItem{\VAR{item}}
+            %% endfor
+            \resumeItem{\ul{Utilized} \VAR{project.skills|join(', ')}}
+          \resumeItemListEnd
+      %% endfor
+    \resumeSubHeadingListEnd
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+      \textbf{Proficient}: \VAR{skills.proficient |join(', ')} \\
+      \textbf{Familiar}: \VAR{skills.familiar|join(', ')}
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
