@@ -121,5 +121,7 @@ alias fuck='git add .; git commit --amend --no-edit; git push -f'
 # Links
 
 - [saffathasan.github.io/CICD-Talk](https://saffathasan.github.io/CICD-Talk)
+- [saffathasan.github.io/CICD-Talk/resume.pdf](https://saffathasan.github.io/CICD-Talk/resume.pdf)
 - [Github Actions](https://github.com/features/actions)
 - [Marp](https://marp.app)
+- [Resume How-To](https://www.freecodecamp.org/news/writing-a-killer-software-engineering-resume-b11c91ef699d/)

@@ -24,7 +24,6 @@ def get_template(template_file):
         Jinja2 template
     """
     latex_jinja_env = jinja2.Environment(
-        loader=jinja2.FileSystemLoader('templates'),
         block_start_string=r'\BLOCK{',
         block_end_string='}',
         variable_start_string=r'\VAR{',
