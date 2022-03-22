@@ -37,7 +37,7 @@ def get_template(template_file):
         autoescape=False,
     )
 
-    with open(template_file) as file_handle:
+    with open(template_file, encoding='UTF-8') as file_handle:
         contents = file_handle.read()
 
     return latex_jinja_env.from_string(contents)
@@ -51,7 +51,8 @@ def render_template_to_file(template, data, output_file):
         data(yaml.Yaml): personal data to render into the resume template
         output_file(string): destination, specified as dist/{resume_name}.pdf
     """
-    with open(output_file, "w") as file_handle:
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    with open(output_file, "w", encoding='UTF-8') as file_handle:
         file_handle.write(template.render(data))
 
 
@@ -61,15 +62,14 @@ def get_data(data_file):
     RETURNS:
         key/value pairs of data
     """
-    os.makedirs(os.path.dirname(output_file), exist_ok=True)
-    with open(data_file, 'r') as stream:
+    with open(data_file, 'r', encoding='UTF-8') as stream:
         data = yaml.safe_load(stream)
     return data
 
 
 if __name__ == "__main__":
-    template_file = "src/resume.tex"
-    data_file = "src/data.yml"
-    output_file = "dist/resume.tex"
-
-    generate_resume(template_file, data_file, output_file)
+    generate_resume(
+        template_file="src/resume.tex",
+        data_file="src/data.yml",
+        output_file="dist/resume.tex",
+    )
