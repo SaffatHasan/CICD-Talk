@@ -1,70 +1,77 @@
 name: Build and Deploy
-
 on: [push]
-
 jobs:
-  gen-latex-files:
+  generate-latex:
     runs-on: ubuntu-latest
     container: python:3.8
     steps:
-        # Checkout current branch 
+        # Checkout current branch
       - uses: actions/checkout@v2
-        
         # Install python depedencies
       - run: pip install jinja2 pyyaml
-
         # Generate our rendered latex templates!
       - run: python src/render_resume_template.py
-
         # Upload and save it for the next job
       - name: upload generated latex
         uses: actions/upload-artifact@v2
         with:
-          name: gen-latex-files-artifacts
+          name: generate-latex-artifact
           path: dist/resume.tex
-
-  generate-pdf-files:
+  generate-resume-pdf:
     runs-on: ubuntu-latest
     container: blang/latex:ubuntu
-    needs: gen-latex-files
+    needs: generate-latex
     steps:
-        # Checkout current branch 
+        # Checkout current branch
       - uses: actions/checkout@v2
-
         # Download generated latex template
-      - name: copy artifact from gen-latex-files-artifacts
+      - name: copy artifact from generate-latex-artifact
         uses: actions/download-artifact@v2
         with:
-          name: gen-latex-files-artifacts
+          name: generate-latex-artifact
           path: dist/
-
         # Generate our resume as a PDF!
       - run: lualatex resume.tex
         working-directory: dist/
-
         # Upload and save PDF for the next job.
       - name: upload generated pdf
         uses: actions/upload-artifact@v2
         with:
-          name: generate-pdf-artifacts
+          name: generate-pdf-artifact
           path: dist/resume.pdf
-
+  generate-slides-html:
+    runs-on: ubuntu-latest
+    container: marpteam/marp-cli
+    steps:
+      - uses: actions/checkout@v2
+      - name: generate slides as HTML
+        run: /home/marp/.cli/marp-cli.js docs/slides.md --output index.html
+      - name: upload generated pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: generate-slides-artifact
+          path: index.html
   deploy-to-github-pages:
     runs-on: ubuntu-latest
-    needs: generate-pdf-files
+    needs:
+      - generate-resume-pdf
+      - generate-slides-html
     if: github.ref == 'refs/heads/main'
-
     steps:
-        # Checkout current branch 
+        # Checkout current branch
       - uses: actions/checkout@v2
-
         # Download generated PDF
-      - name: copy artifact from generate-pdf-artifacts
+      - name: copy artifact from generate-pdf-artifact
         uses: actions/download-artifact@v2
         with:
-          name: generate-pdf-artifacts
+          name: generate-pdf-artifact
           path: publish/
-
+        # Download slides
+      - name: copy artifact from generate-slides-artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: generate-slides-artifact
+          path: publish/
         # Deploy 🚀
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
