@@ -5,9 +5,9 @@ contact:
     city: Home City
     state: Home State
     zip: Home Zip
-  phone: "Phone Number"
-  email: "Your Email"
-  github: "Your Github"
+  phone: Phone Number
+  email: Your Email
+  github: Your Github
   linkedin: Your Linkedin
 
 education:
@@ -74,7 +74,7 @@ projects:
 
   - name: Your Project
     url: https://github.com/YourName/YourProject
-    duration: Sept 2020 - Present
+    duration: Sept 2199 - Present
     summary_items:
       - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet
       - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula, dui eu ultrices fermentum, diam nulla aliquet

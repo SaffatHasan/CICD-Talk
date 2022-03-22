@@ -1,5 +1,10 @@
-# Intro to CICD
+# Intro to CICD ![build](https://github.com/SaffatHasan/CICD-Talk/actions/workflows/build.yml/badge.svg) ![style](https://github.com/SaffatHasan/CICD-Talk/actions/workflows/lint.yml/badge.svg)
 
-A short introduction to what CICD is and how it can be useful.
+A short introduction to the world of Continuous Integration and Continuous Deployment.
 
-This repo leverages Github Actions but is not meant to endorse any tool in particular.
+To view the slides for this presentation, visit [saffathasan.github.io/CICD-Talk](https://saffathasan.github.io/CICD-Talk).
+
+## Building your own CICD-Talk
+
+- Modify `src/data.yml`
+- Run `make build` (requires Make and Docker)

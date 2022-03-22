@@ -1,17 +1,21 @@
-# Introduction to CICD
+---
+theme: default
+marp: true
+footer: Intro to CICD
+---
+
+# Intro to CICD
 
 ![bg left](https://source.unsplash.com/Tjbk79TARiE)
 
 ---
 
-# Table of Contents
+# Contents
 
 - What is CICD?
-- How is it useful?
+- How is it Useful?
 - Demo
-- Pros
-- Cons
-- Links
+- Pros & Cons
 
 ![bg right](https://source.unsplash.com/huT1A8nW_Ho)
 
@@ -27,7 +31,7 @@
 
 ---
 
-# How is it useful?
+# How is it Useful?
 
 - Slowing down is boring
 - Focus on the important stuff
@@ -37,7 +41,7 @@
 
 ---
 
-# How is it useful?
+# How is it Useful?
 
 - Check style and unit testing
 - Automate deployments
@@ -50,17 +54,32 @@
 
 # Demo
 
-- Building a resume locally
-- Build it using Github Actions
+- Build resume using LaTeX
+- Build slides using Marp
+
+![bg right](https://source.unsplash.com/lB9ylP8e9Sg)
 
 ---
 
 # Demo
 
-- Can you make it better?
-- Support multiple templates?
+- PyLint checks style
+- Python builds resume.tex
+- Latex builds resume.pdf
+- Marp builds slides.html
+- Github Actions deploys them to gh-pages
+
+![bg right](https://source.unsplash.com/lB9ylP8e9Sg)
+
+---
+
+# Demo
+
+Can you make it better?
+
+- Multiple templates?
 - Deploy to a real static page?
-- Autogenerate S3 bucket (terraform) and have a DNS record point to it?
+- Deploy to s3?
 
 ![bg left](https://source.unsplash.com/RNoiGmxhf7Y)
 
@@ -68,8 +87,8 @@
 
 # Pros
 
-- Never have to copy/paste your PDF
-- Pretty green button lets you know nothing is broken
+- 0 effort deployments
+- Pretty green buttons
 
 ![bg right](https://source.unsplash.com/p-I9wV811qk)
 
@@ -82,13 +101,14 @@
     }
 </style>
 
-- Can be hard to setup
 ```bash
 alias fuck='git add .; git commit --amend --no-edit; git push -f'
 ```
-
-- Hard to scale across the enterprise
-- Setup varies
+- Hard to unify enterprise
+- Build it twice
+- YAML
+- Who tests the tests?
+- Many, many tools
     - Github Actions
     - Gitlab CI
     - Bitbucket Pipelines
@@ -99,3 +119,7 @@ alias fuck='git add .; git commit --amend --no-edit; git push -f'
 ---
 
 # Links
+
+- [saffathasan.github.io/CICD-Talk](https://saffathasan.github.io/CICD-Talk)
+- [Github Actions](https://github.com/features/actions)
+- [Marp](https://marp.app)
