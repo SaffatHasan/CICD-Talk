@@ -10,7 +10,7 @@ jobs:
         # Install python depedencies
       - run: pip install jinja2 pyyaml
         # Generate our rendered latex templates!
-      - run: python src/render_resume_template.py
+      - run: python resume/render_resume_template.py
         # Upload and save it for the next job
       - name: upload generated latex
         uses: actions/upload-artifact@v2
@@ -45,7 +45,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: generate slides as HTML
-        run: /home/marp/.cli/marp-cli.js docs/slides.md --output index.html
+        run: /home/marp/.cli/marp-cli.js slides/slides.md --output index.html
       - name: upload generated pdf
         uses: actions/upload-artifact@v2
         with:

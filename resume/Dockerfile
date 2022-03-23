@@ -4,4 +4,4 @@ WORKDIR /data
 
 RUN pip install Jinja2 PyYaml
 
-ENTRYPOINT python src/render_resume_template.py
+ENTRYPOINT python resume/render_resume_template.py

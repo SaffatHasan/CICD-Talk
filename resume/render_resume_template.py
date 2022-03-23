@@ -68,7 +68,7 @@ def get_data(data_file):
 
 if __name__ == "__main__":
     generate_resume(
-        template_file="src/resume.tex",
-        data_file="src/data.yml",
+        template_file="resume/resume.tex",
+        data_file="resume/data.yml",
         output_file="dist/resume.tex",
     )

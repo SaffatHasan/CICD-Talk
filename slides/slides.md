@@ -41,7 +41,7 @@ footer: Intro to CICD
 
 ---
 
-# How is it Useful?
+# What can it do?
 
 - Check style and unit testing
 - Automate deployments
