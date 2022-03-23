@@ -20,4 +20,4 @@ jobs:
         pip install pylint pyyaml jinja2
     - name: Analysing the code with pylint
       run: |
-        pylint src/
+        pylint resume/
