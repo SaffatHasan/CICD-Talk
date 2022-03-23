@@ -24,7 +24,7 @@ footer: Intro to CICD
 # What is CICD?
 
 - Continuous Integration
-- Continuous Deployment
+- Continuous Delivery
 - Developer + Operations (DevOps)
 
 ![bg left fit](https://software.af.mil/wp-content/uploads/2019/08/devops-loop.svg)
